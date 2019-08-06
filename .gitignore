@@ -1,2 +1,5 @@
-terraform.tfplan
+.gitignore
+terraform.tfplan                                                                                                       
 terraform.tfstate
+.terraform/
+terraform.tfstate.backup
