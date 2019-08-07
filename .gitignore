@@ -1,5 +1,6 @@
 .gitignore
-terraform.tfplan                                                                                                       
+terraform.tfplan                                                                                                     
+terraform-provider-cherryservers
 terraform.tfstate
-.terraform/
+.terraform/*
 terraform.tfstate.backup

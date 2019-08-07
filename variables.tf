@@ -14,6 +14,6 @@ variable "image" {
 variable "plan_id" {
   default = "94"
 }
-variable "private_key" {
+variable "ssh_key" {
   default = "~/.ssh/deployment"
 }
