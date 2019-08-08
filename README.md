@@ -3,8 +3,8 @@ Terraform template to automatically deploy High-Available (HA) kubernetes cluste
 This exmample will create HA cluster with three control plane nodes and three worker nodes.
 
 ## Prerequisites
-- Golang 1.12.7
-- Terraform 0.12
+- Golang 1.12.7 https://golang.org/dl/
+- Terraform 0.12 https://www.terraform.io/downloads.html
 - Cherryservers Terraform binary http://downloads.cherryservers.com/other/terraform/
 
 And of course cherrservers.com account with the credit in balance, which will be used to order services with hourly billing. 

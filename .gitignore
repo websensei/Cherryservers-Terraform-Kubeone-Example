@@ -1,6 +1,8 @@
-.gitignore
-terraform.tfplan                                                                                                     
 terraform-provider-cherryservers
-terraform.tfstate
-.terraform/*
+terraform.tfplan                                                                                                     
 terraform.tfstate.backup
+terraform.tfstate
+terraform.*
+.terraform/*
+.DS_Store
+
