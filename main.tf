@@ -13,6 +13,20 @@ resource "cherryservers_ip" "floating-ip-lb" {
   region     = var.region
 }
 
+resource "cherryservers_server" "control_plane" {
+  project_id = cherryservers_project.myproject.id
+  count      = 3
+  hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
+  image   = var.image
+  region  = var.region
+  plan_id = var.plan_id
+
+  ssh_keys_ids = [
+    cherryservers_ssh.deployment.id,
+  ]
+
+}
+
 resource "cherryservers_server" "load-balancer" {
   project_id = cherryservers_project.myproject.id
   region     = var.region
@@ -42,22 +56,34 @@ resource "cherryservers_server" "load-balancer" {
   }
 }
 
-resource "cherryservers_server" "control_plane" {
-  project_id = cherryservers_project.myproject.id
-  count      = 3
-  hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
-  #hostname = "control-plane"
-  image   = var.image
-  region  = var.region
-  plan_id = var.plan_id
-
-  ssh_keys_ids = [
-    cherryservers_ssh.deployment.id,
-  ]
-
-  #labels = {
-  #  "kubeone_cluster_name" = "${var.cluster_name}"
-  #  "role"                 = "api"
-  #}
+locals {
+  rendered_lb_config = templatefile("./etc_gobetween.tpl", {
+    lb_targets = cherryservers_server.control_plane.*.primary_ip,
+  })
 }
 
+resource "null_resource" "lb_config" {
+  triggers = {
+    cluster_instance_ids = join(",", cherryservers_server.control_plane.*.id)
+    config               = local.rendered_lb_config
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "root"
+    host = cherryservers_ip.floating-ip-lb.address
+    private_key = file(var.private_key)
+    timeout     = "20m"
+  }
+
+  provisioner "file" {
+    content     = local.rendered_lb_config
+    destination = "/etc/gobetween.toml"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "systemctl restart gobetween",
+    ]
+  }
+}
