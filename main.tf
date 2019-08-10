@@ -17,9 +17,10 @@ resource "cherryservers_server" "control_plane" {
   project_id = cherryservers_project.myproject.id
   count      = 3
   hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
-  image   = var.image
-  region  = var.region
-  plan_id = var.plan_id
+  image      = var.image
+  region     = var.region
+  plan_id    = var.plan_id
+  user_data  = var.cloud-init
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
@@ -44,8 +45,8 @@ resource "cherryservers_server" "load-balancer" {
   ]
 
   connection {
-    type        = "ssh"
-    user        = "root"
+   # type        = "ssh"
+   # user        = "root"
     host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
     timeout     = "20m"
@@ -69,9 +70,9 @@ resource "null_resource" "lb_config" {
   }
 
   connection {
-    type        = "ssh"
-    user        = "root"
-    host = cherryservers_ip.floating-ip-lb.address
+   # type        = "ssh"
+   # user        = "root"
+    host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
     timeout     = "20m"
   }
