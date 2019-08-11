@@ -11,9 +11,9 @@ Load balancing is powered by <http://gobetween.io/>
 - Cherryservers Terraform provider binary <http://downloads.cherryservers.com/other/terraform/>
 - Kubeone <https://github.com/kubermatic/kubeone/>
 
-## Setting Up 
+## Setting Up
 
-You will cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
+You will need cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
 
 Create API key <https://portal.cherryservers.com/#/settings/api-keys/>
 export it to variables.tf file:
@@ -24,11 +24,11 @@ provider "cherryservers" {
 }
 ```
 
-Other imporant variables:
--"team_id"
--"region" "EU-East-1"
--"plan_id"
--"private_key" & "public_key"
+Other important variables:
+-"team_id" can be optained once logged into [client portal](https://portal.cherryservers.com/#/)
+-"region" default is "EU-East-1"
+-"plan_id" default is "96" [SSD Smart16](https://www.cherryservers.com/pricing/virtual-servers/ssd_smart16)
+-"private_key" & "public_key" your private and public SSH keys needed for the deployment
 
 ## How to use
 
