@@ -4,6 +4,12 @@ Terraform template to automatically deploy High-Available (HA) kubernetes cluste
 This example will create HA cluster with three control plane nodes and three worker nodes.
 Load balancing is powered by <http://gobetween.io/>
 
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
 ## Prerequisites
 
 - Golang 1.12.7 <https://golang.org/dl/>
