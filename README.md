@@ -28,8 +28,8 @@ Other important variables:
 
 - "team_id" can be optained once logged into [client portal](https://portal.cherryservers.com/#/)
 - "region" default is "EU-East-1"
-- "plan_id" default is "96" [SSD Smart16](https://www.cherryservers.com/pricing/virtual-servers/ssd_smart16)
-- "private_key" & "public_key" your private and public SSH keys needed for the deployment
+- "plan_id" default is "96" [SSD Smart16](https://www.cherryservers.com/pricing/virtual-servers/ssd_smart16), all plans are available [here](https://api.cherryservers.com/v1/plans?currency=EUR) 
+- "private_key" & "public_key" are your private and public SSH keys needed for the deployment
 
 ## How to use
 

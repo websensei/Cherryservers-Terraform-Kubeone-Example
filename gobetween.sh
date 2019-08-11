@@ -27,7 +27,6 @@ cd /tmp/gobetween
 curl -L -o gobetween_${GOBETWEEN_VERSION}_linux_amd64.tar.gz \
     https://github.com/yyyar/gobetween/releases/download/${GOBETWEEN_VERSION}/gobetween_${GOBETWEEN_VERSION}_linux_amd64.tar.gz
 tar xvf gobetween_${GOBETWEEN_VERSION}_linux_amd64.tar.gz
-sudo cp config/gobetween.toml /etc/gobetween.toml
 sudo mkdir -p /opt/bin
 sudo mv gobetween /opt/bin/gobetween
 sudo chown root:root /opt/bin/gobetween
