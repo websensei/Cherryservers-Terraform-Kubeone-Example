@@ -45,8 +45,8 @@ resource "cherryservers_server" "load-balancer" {
   ]
 
   connection {
-   #host        = cherryservers_ip.floating-ip-lb.address
-    host        = cherryservers_server.load-balancer.primary_ip
+   host        = cherryservers_ip.floating-ip-lb.address
+   #host        = cherryservers_server.load-balancer.primary_ip
     private_key = file(var.private_key)
   }
 
@@ -68,8 +68,8 @@ resource "null_resource" "lb_config" {
   }
 
   connection {
-    host        = cherryservers_server.load-balancer.primary_ip
-    #host        = cherryservers_ip.floating-ip-lb.address
+    #host        = cherryservers_server.load-balancer.primary_ip
+    host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
   }
 

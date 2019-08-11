@@ -1,7 +1,8 @@
 # Cherryservers-Terraform-Kubermatic-Example
 
 Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure. 
-This exmample will create HA cluster with three control plane nodes and three worker nodes. Load balancing is powered by <http://gobetween.io/>
+This exmample will create HA cluster with three control plane nodes and three worker nodes.
+Load balancing is powered by <http://gobetween.io/>
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ packages:
 
 ```sh
 terraform init
-terraform apply -auto-aproove
+terraform apply -auto-approve
 terraform output -json > tf.json
 kubeone install config.yaml -t tf.json
 ```
