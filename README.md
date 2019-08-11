@@ -4,11 +4,16 @@ Terraform template to automatically deploy High-Available (HA) kubernetes cluste
 This example will create HA cluster with three control plane nodes and three worker nodes.
 Load balancing is powered by <http://gobetween.io/>
 
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+                                       +--------------+
+                                  +----|control-plane1|
+                                  |    +--------------+
+                 +-------------+  |    +--------------+
+     request ----|load-balancer|--+--- |control-plane2|
+                 +-------------+  |    +--------------+
+                                  |    +--------------+
+                                  +----|control-plane3|
+                                       +--------------+
+                                                       
 
 ## Prerequisites
 
