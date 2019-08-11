@@ -21,6 +21,7 @@ set -euf -o pipefail
 
 GOBETWEEN_VERSION=0.7.0
 
+apt-get install curl
 mkdir -p /tmp/gobetween
 cd /tmp/gobetween
 curl -L -o gobetween_${GOBETWEEN_VERSION}_linux_amd64.tar.gz \

@@ -8,7 +8,7 @@
       }
     ],
     "value": {
-      "endpoint": "185.150.116.250"
+      "endpoint": "185.150.116.161"
     }
   },
   "kubeone_hosts": {
@@ -21,10 +21,6 @@
           {
             "cloud_provider": "string",
             "cluster_name": "string",
-            "private_address": [
-              "tuple",
-              []
-            ],
             "public_address": [
               "tuple",
               [
@@ -45,11 +41,10 @@
       "control_plane": {
         "cloud_provider": "cherryservers",
         "cluster_name": "kubeone",
-        "private_address": [],
         "public_address": [
-          "46.166.173.124",
-          "46.166.161.141",
-          "46.166.162.196"
+          "46.166.173.58",
+          "46.166.162.197",
+          "46.166.173.73"
         ],
         "ssh_agent_socket": "env:SSH_AUTH_SOCK",
         "ssh_port": 22,

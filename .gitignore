@@ -4,5 +4,7 @@ terraform.tfstate.backup
 terraform.tfstate
 terraform.*
 .terraform/*
+tf.json
+
 .DS_Store
 
