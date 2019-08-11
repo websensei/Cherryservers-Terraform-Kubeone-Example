@@ -1,0 +1,127 @@
+{
+  "kubeone_api": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "endpoint": "string"
+      }
+    ],
+    "value": {
+      "endpoint": "185.150.116.250"
+    }
+  },
+  "kubeone_hosts": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "control_plane": [
+          "object",
+          {
+            "cloud_provider": "string",
+            "cluster_name": "string",
+            "private_address": [
+              "tuple",
+              []
+            ],
+            "public_address": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "ssh_agent_socket": "string",
+            "ssh_port": "number",
+            "ssh_private_key_file": "string",
+            "ssh_user": "string"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "control_plane": {
+        "cloud_provider": "cherryservers",
+        "cluster_name": "kubeone",
+        "private_address": [],
+        "public_address": [
+          "46.166.173.124",
+          "46.166.161.141",
+          "46.166.162.196"
+        ],
+        "ssh_agent_socket": "env:SSH_AUTH_SOCK",
+        "ssh_port": 22,
+        "ssh_private_key_file": "~/.ssh/deployment",
+        "ssh_user": "root"
+      }
+    }
+  },
+  "kubeone_workers": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "kubeone-pool1": [
+          "object",
+          {
+            "providerSpec": [
+              "object",
+              {
+                "cloudProviderSpec": [
+                  "object",
+                  {
+                    "labels": [
+                      "object",
+                      {
+                        "kubeone-workers": "string"
+                      }
+                    ],
+                    "location": "string",
+                    "serverType": "string"
+                  }
+                ],
+                "operatingSystem": "string",
+                "operatingSystemSpec": [
+                  "object",
+                  {
+                    "distUpgradeOnBoot": "bool"
+                  }
+                ],
+                "sshPublicKeys": [
+                  "tuple",
+                  [
+                    "string"
+                  ]
+                ]
+              }
+            ],
+            "replicas": "number"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "kubeone-pool1": {
+        "providerSpec": {
+          "cloudProviderSpec": {
+            "labels": {
+              "kubeone-workers": "pool1"
+            },
+            "location": "EU-East-1",
+            "serverType": "94"
+          },
+          "operatingSystem": "ubuntu",
+          "operatingSystemSpec": {
+            "distUpgradeOnBoot": false
+          },
+          "sshPublicKeys": [
+            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3zUg/PVDmBj2EWGoVJU5JFd79xCwinK/NgX7gLygqmmo1xRZ0oCOaajwtwpVCtPLUvU35GAiCQJZUhr4Nc7fk6dkvAYSPDo1jYwMUcbJ2tGMIkVeMY8Yuy+WQezM3VJDi8QiQWZPm+HQMK1ZhnJARQX10QO4ZpMGZSpNa2u/89ujgDEoaXOS32E9lT6epcFTY2ZEbG9TloLKvTO5KPYxRwpCpaoJmlhnzAZcq2D2T+qn9Hqjqo1esg+WYjSbgL2w61HP359lgXJfZupdZxbrhaNR7yQxpyv3jYJMnbe4rFTWNPQeSyNFGgL7SsSbmsQIgXzjcHv4hYmtpz/YSZkUl manc@i3\n"
+          ]
+        },
+        "replicas": 1
+      }
+    }
+  }
+}

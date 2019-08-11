@@ -1,0 +1,8 @@
+apiVersion: kubeone.io/v1alpha1
+kind: KubeOneCluster
+name: demo
+versions:
+  kubernetes: '1.14.1'
+cloudProvider:
+  name: 'cherryservers'
+external: true

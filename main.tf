@@ -8,11 +8,6 @@ resource "cherryservers_ssh" "deployment" {
   public_key = file(var.public_key)
 }
 
-resource "cherryservers_ip" "floating-ip-lb" {
-  project_id = cherryservers_project.myproject.id
-  region     = var.region
-}
-
 resource "cherryservers_server" "control_plane" {
   project_id = cherryservers_project.myproject.id
   count      = 3
@@ -20,13 +15,18 @@ resource "cherryservers_server" "control_plane" {
   image      = var.image
   region     = var.region
   plan_id    = var.plan_id
-  user_data  = var.cloud-init
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
   ]
 
 }
+
+resource "cherryservers_ip" "floating-ip-lb" {
+  project_id = cherryservers_project.myproject.id
+  region     = var.region
+}
+
 
 resource "cherryservers_server" "load-balancer" {
   project_id = cherryservers_project.myproject.id
@@ -45,11 +45,8 @@ resource "cherryservers_server" "load-balancer" {
   ]
 
   connection {
-   # type        = "ssh"
-   # user        = "root"
     host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
-    timeout     = "20m"
   }
 
   provisioner "remote-exec" {
@@ -70,11 +67,8 @@ resource "null_resource" "lb_config" {
   }
 
   connection {
-   # type        = "ssh"
-   # user        = "root"
     host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
-    timeout     = "20m"
   }
 
   provisioner "file" {

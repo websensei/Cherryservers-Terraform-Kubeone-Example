@@ -1,6 +1,6 @@
 # API key https://portal.cherryservers.com/#/settings/api-keys
 #provider "cherryservers" {
-#  auth_token = "token_file"
+#  auth_token = "token"
 #}
 
 variable "project_name" {
@@ -20,7 +20,7 @@ variable "region" {
 }
 
 variable "image" {
-  default = "Ubuntu 16.04 64bit"
+  default = "Ubuntu 18.04 64bit"
 }
 
 variable "plan_id" {
@@ -36,6 +36,7 @@ variable "public_key" {
 }
 
 variable "cloud-init" {
+  # install curl"
   default = "I2Nsb3VkLWNvbmZpZwpwYWNrYWdlczoKIC0gY3VybA=="
 }
 
@@ -57,11 +58,6 @@ variable "ssh_port" {
 variable "ssh_username" {
   description = "SSH user, used only in output"
   default     = "root"
-}
-
-variable "ssh_private_key_file" {
-  description = "SSH private key file used to access instances"
-  default     = ""
 }
 
 variable "ssh_agent_socket" {

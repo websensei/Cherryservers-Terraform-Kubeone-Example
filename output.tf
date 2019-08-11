@@ -29,7 +29,7 @@ output "kubeone_hosts" {
     control_plane = {
       cluster_name         = var.cluster_name
       cloud_provider       = "cherryservers"
-      private_address      = [] # private addresses
+      #private_address      = [] # private addresses
       public_address       = cherryservers_server.control_plane.*.primary_ip
       ssh_agent_socket     = var.ssh_agent_socket
       ssh_port             = var.ssh_port
@@ -54,9 +54,6 @@ output "kubeone_workers" {
           distUpgradeOnBoot = false
         }
         cloudProviderSpec = {
-          # provider specific fields:
-          # see example under `cloudProviderSpec` section at:
-          # https://github.com/kubermatic/machine-controller/blob/master/examples/hetzner-machinedeployment.yaml
           serverType = var.plan_id
           location   = var.region
           labels = {
