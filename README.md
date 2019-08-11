@@ -11,22 +11,16 @@ Load balancing is powered by <http://gobetween.io/>
 - Cherryservers Terraform provider binary <http://downloads.cherryservers.com/other/terraform/>
 - Kubeone <https://github.com/kubermatic/kubeone/>
 
+## Setting Up 
+
 And of course cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
 
-### Setting Up Credentials
-
-Export cherryservers API key <https://portal.cherryservers.com/#/settings/api-keys/>
-
-### User-data
-
-Cherryservers support custom cloud-init
-
-User-data is base64 encoded:
-
+Create API key <https://portal.cherryservers.com/#/settings/api-keys/>
+export it to variables.tf file:
 ```sh
-#cloud-init
-packages:
- - curl
+provider "cherryservers" {
+  auth_token = "amalkaad23asd4a8awd43a32e3492"
+}
 ```
 
 ## How to use
