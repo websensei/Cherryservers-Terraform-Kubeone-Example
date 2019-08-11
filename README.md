@@ -1,7 +1,7 @@
 # Cherryservers-Terraform-Kubermatic-Example
 
 Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure. 
-This exmample will create HA cluster with three control plane nodes and three worker nodes.
+This example will create HA cluster with three control plane nodes and three worker nodes.
 Load balancing is powered by <http://gobetween.io/>
 
 ## Prerequisites
@@ -25,10 +25,11 @@ provider "cherryservers" {
 ```
 
 Other important variables:
--"team_id" can be optained once logged into [client portal](https://portal.cherryservers.com/#/)
--"region" default is "EU-East-1"
--"plan_id" default is "96" [SSD Smart16](https://www.cherryservers.com/pricing/virtual-servers/ssd_smart16)
--"private_key" & "public_key" your private and public SSH keys needed for the deployment
+
+- "team_id" can be optained once logged into [client portal](https://portal.cherryservers.com/#/)
+- "region" default is "EU-East-1"
+- "plan_id" default is "96" [SSD Smart16](https://www.cherryservers.com/pricing/virtual-servers/ssd_smart16)
+- "private_key" & "public_key" your private and public SSH keys needed for the deployment
 
 ## How to use
 
