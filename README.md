@@ -17,14 +17,14 @@ Load balancing is powered by <http://gobetween.io/>
 
 ## Prerequisites
 
-- Golang 1.12.7 <https://golang.org/dl/>
-- Terraform 0.12.6 <https://www.terraform.io/downloads.html/>
-- Cherryservers Terraform provider binary <http://downloads.cherryservers.com/other/terraform/>
-- Kubeone <https://github.com/kubermatic/kubeone/>
+- [Golang](https://golang.org/dl/)
+- [Terraform](https://www.terraform.io/downloads.html) 0.12.6
+- [Cherryservers Terraform provider binary](http://downloads.cherryservers.com/other/terraform)
+- [Kubeone](https://github.com/kubermatic/kubeone)
 
-## Setting Up
+## Before you start
 
-You will need cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
+You will need [cherrservers.com](https://portal.cherryservers.com) account with the credit in balance, which will be used to order services with hourly billing.
 
 Create API key <https://portal.cherryservers.com/#/settings/api-keys/>
 export it to variables.tf file:
