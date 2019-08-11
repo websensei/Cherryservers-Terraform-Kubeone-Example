@@ -13,15 +13,22 @@ Load balancing is powered by <http://gobetween.io/>
 
 ## Setting Up 
 
-And of course cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
+You will cherrservers.com account with the credit in balance, which will be used to order services with hourly billing.
 
 Create API key <https://portal.cherryservers.com/#/settings/api-keys/>
 export it to variables.tf file:
+
 ```sh
 provider "cherryservers" {
   auth_token = "amalkaad23asd4a8awd43a32e3492"
 }
 ```
+
+Other imporant variables:
+-"team_id"
+-"region" "EU-East-1"
+-"plan_id"
+-"private_key" & "public_key"
 
 ## How to use
 
