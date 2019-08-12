@@ -1,4 +1,3 @@
-# API key https://portal.cherryservers.com/#/settings/api-keys
 #provider "cherryservers" {
 #  auth_token = "token"
 #}
@@ -35,8 +34,7 @@ variable "public_key" {
   default = "~/.ssh/deployment.pub"
 }
 
-variable "cloud-init" {
-  # install curl"
+variable "cloud_init" {
   default = "I2Nsb3VkLWNvbmZpZwpwYWNrYWdlczoKIC0gY3VybA=="
 }
 

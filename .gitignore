@@ -1,10 +1,9 @@
 terraform-provider-cherryservers
-terraform.tfplan                                                                                                     
+terraform.tfplan
 terraform.tfstate.backup
 terraform.tfstate
+terraform.tfvars
 terraform.*
 .terraform/*
 tf.json
-
-.DS_Store
 

@@ -34,7 +34,8 @@ resource "cherryservers_server" "load-balancer" {
   hostname   = "${var.cluster_name}-lb"
   image      = var.image
   plan_id    = var.plan_id
-  user_data  = var.cloud-init
+  #user_data  = var.cloud_init
+  user_data = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
@@ -46,8 +47,7 @@ resource "cherryservers_server" "load-balancer" {
 
   connection {
    host        = cherryservers_ip.floating-ip-lb.address
-   #host        = cherryservers_server.load-balancer.primary_ip
-    private_key = file(var.private_key)
+   private_key = file(var.private_key)
   }
 
   provisioner "remote-exec" {
@@ -68,7 +68,6 @@ resource "null_resource" "lb_config" {
   }
 
   connection {
-    #host        = cherryservers_server.load-balancer.primary_ip
     host        = cherryservers_ip.floating-ip-lb.address
     private_key = file(var.private_key)
   }
