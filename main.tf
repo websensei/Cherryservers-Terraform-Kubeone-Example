@@ -27,7 +27,6 @@ resource "cherryservers_ip" "floating-ip-lb" {
   region     = var.region
 }
 
-
 resource "cherryservers_server" "load-balancer" {
   project_id = cherryservers_project.myproject.id
   region     = var.region
@@ -35,7 +34,7 @@ resource "cherryservers_server" "load-balancer" {
   image      = var.image
   plan_id    = var.plan_id
   #user_data  = var.cloud_init
-  user_data = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
+  user_data  = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
@@ -69,7 +68,7 @@ resource "null_resource" "lb_config" {
 
   connection {
     host        = cherryservers_ip.floating-ip-lb.address
-    private_key = file(var.private_key)
+    #private_key = file(var.private_key)
   }
 
   provisioner "file" {
