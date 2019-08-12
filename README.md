@@ -1,4 +1,4 @@
-# Cherryservers-Terraform-Kubermatic-Example
+# Cherryservers-Terraform-Kubeone-Example
 
 Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure. 
 This example will create HA cluster with three control plane nodes and three worker nodes.
