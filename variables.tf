@@ -35,7 +35,7 @@ variable "public_key" {
 }
 
 variable "cloud_init" {
-  default = "I2Nsb3VkLWNvbmZpZwpwYWNrYWdlczoKIC0gY3VybA=="
+  default = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
 }
 
 variable "worker_os" {

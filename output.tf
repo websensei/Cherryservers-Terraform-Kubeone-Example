@@ -28,7 +28,7 @@ output "kubeone_hosts" {
   value = {
     control_plane = {
       cluster_name         = var.cluster_name
-      cloud_provider       = "cherryservers"
+     # cloud_provider       = "none"
       #private_address      = [] # private addresses
       public_address       = cherryservers_server.control_plane.*.primary_ip
       ssh_agent_socket     = var.ssh_agent_socket

@@ -1,19 +1,8 @@
 # Cherryservers-Terraform-Kubeone-Example
 
 Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure. 
-This example will create HA cluster with three control plane nodes and three worker nodes.
+This example will create HA cluster with three control plane nodes.
 Load balancing is powered by <http://gobetween.io/>
-
-                                       +--------------+   +-------+
-                                  +----|control-plane1|---|worker1|
-                                  |    +--------------+   +-------+
-                 +-------------+  |    +--------------+   +-------+
-     request ----|load-balancer|--+--- |control-plane2|---|worker2|
-                 +-------------+  |    +--------------+   +-------+
-                                  |    +--------------+   +-------+
-                                  +----|control-plane3|---|worker3|
-                                       +--------------+   +-------+
-                                                       
 
 ## Prerequisites
 

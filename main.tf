@@ -8,6 +8,38 @@ resource "cherryservers_ssh" "deployment" {
   public_key = file(var.public_key)
 }
 
+resource "cherryservers_ip" "floating-ip-lb" {
+  project_id = cherryservers_project.myproject.id
+  region     = var.region
+}
+
+resource "cherryservers_server" "load-balancer" {
+  project_id = cherryservers_project.myproject.id
+  region     = var.region
+  hostname   = "${var.cluster_name}-lb"
+  image      = var.image
+  plan_id    = var.plan_id
+  user_data  = var.cloud_init
+  #user_data  = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
+
+  ssh_keys_ids = [
+    cherryservers_ssh.deployment.id,
+  ]
+
+  ip_addresses_ids = [
+    cherryservers_ip.floating-ip-lb.id,
+  ]
+
+  connection {
+    host        = cherryservers_ip.floating-ip-lb.address
+    private_key = file(var.private_key)
+  }
+
+  provisioner "remote-exec" {
+    script = "gobetween.sh"
+  }
+}
+
 resource "cherryservers_server" "control_plane" {
   project_id = cherryservers_project.myproject.id
   count      = 3
@@ -20,38 +52,6 @@ resource "cherryservers_server" "control_plane" {
     cherryservers_ssh.deployment.id,
   ]
 
-}
-
-resource "cherryservers_ip" "floating-ip-lb" {
-  project_id = cherryservers_project.myproject.id
-  region     = var.region
-}
-
-resource "cherryservers_server" "load-balancer" {
-  project_id = cherryservers_project.myproject.id
-  region     = var.region
-  hostname   = "${var.cluster_name}-lb"
-  image      = var.image
-  plan_id    = var.plan_id
-  #user_data  = var.cloud_init
-  user_data  = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
-
-  ssh_keys_ids = [
-    cherryservers_ssh.deployment.id,
-  ]
-
-  ip_addresses_ids = [
-    cherryservers_ip.floating-ip-lb.id,
-  ]
-
-  connection {
-   host        = cherryservers_ip.floating-ip-lb.address
-   private_key = file(var.private_key)
-  }
-
-  provisioner "remote-exec" {
-    script = "gobetween.sh"
-  }
 }
 
 locals {
@@ -68,7 +68,7 @@ resource "null_resource" "lb_config" {
 
   connection {
     host        = cherryservers_ip.floating-ip-lb.address
-    #private_key = file(var.private_key)
+    private_key = file(var.private_key)
   }
 
   provisioner "file" {
@@ -78,7 +78,8 @@ resource "null_resource" "lb_config" {
 
   provisioner "remote-exec" {
     inline = [
-      "systemctl restart gobetween",
-    ]
+      "echo '###restarting GoBetween service###'",
+      "sudo systemctl restart gobetween",
+   ]
   }
 }

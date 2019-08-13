@@ -47,6 +47,9 @@ Group=nogroup
 WantedBy=multi-user.target
 EOF
 
+echo "---starting GoBetween service---"
 sudo systemctl daemon-reload
-sudo systemctl enable gobetween.service
-sudo systemctl start gobetween.service
+sudo systemctl enable gobetween
+sudo systemctl start gobetween
+
+
