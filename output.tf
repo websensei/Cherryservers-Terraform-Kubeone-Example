@@ -39,29 +39,29 @@ output "kubeone_hosts" {
   }
 }
 
-output "kubeone_workers" {
-  description = "Workers definitions, that will be transformed into MachineDeployment object"
-
-  value = {
-    # following outputs will be parsed by kubeone and automatically merged into
-    # corresponding (by name) worker definition
-    "${var.cluster_name}-pool1" = {
-      replicas = 1
-      providerSpec = {
-        sshPublicKeys   = [file(var.public_key)]
-        operatingSystem = var.worker_os
-        operatingSystemSpec = {
-          distUpgradeOnBoot = false
-        }
-        cloudProviderSpec = {
-          serverType = var.plan_id
-          location   = var.region
-          labels = {
-            "${var.cluster_name}-workers" = "pool1"
-          }
-        }
-      }
-    }
-  }
-}
+#output "kubeone_workers" {
+#  description = "Workers definitions, that will be transformed into MachineDeployment object"
+#
+#  value = {
+#    # following outputs will be parsed by kubeone and automatically merged into
+#    # corresponding (by name) worker definition
+#    "${var.cluster_name}-pool1" = {
+#      replicas = 1
+#      providerSpec = {
+#        sshPublicKeys   = [file(var.public_key)]
+#        operatingSystem = var.worker_os
+#        operatingSystemSpec = {
+#          distUpgradeOnBoot = false
+#        }
+#        cloudProviderSpec = {
+#          serverType = var.plan_id
+#          location   = var.region
+#          labels = {
+#            "${var.cluster_name}-workers" = "pool1"
+#          }
+#        }
+#      }
+#    }
+#  }
+#}
 
