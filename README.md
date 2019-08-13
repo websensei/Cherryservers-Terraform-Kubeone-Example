@@ -1,15 +1,16 @@
 # Cherryservers-Terraform-Kubeone-Example
 
-Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure. 
+Terraform template to automatically deploy High-Available (HA) kubernetes cluster on Cherryservers infrastructure.
 This example will create HA cluster with three control plane nodes.
+
 Load balancing is powered by <http://gobetween.io/>
 
 ## Prerequisites
 
-- [Golang](https://golang.org/dl/)
+- [Golang](https://golang.org/dl/) 1.12.7
 - [Terraform](https://www.terraform.io/downloads.html) 0.12.6
 - [Cherryservers Terraform provider binary](http://downloads.cherryservers.com/other/terraform)
-- [Kubeone](https://github.com/kubermatic/kubeone)
+- [Kubeone](https://github.com/kubermatic/kubeone) 0.92
 
 ## Before you start
 
