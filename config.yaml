@@ -1,7 +1,8 @@
 apiVersion: kubeone.io/v1alpha1
 kind: KubeOneCluster
 name: demo-cluster
-machineController.deploy: false
+machineController:
+  deploy: false
 versions:
   kubernetes: 1.14.1
 cloudProvider:

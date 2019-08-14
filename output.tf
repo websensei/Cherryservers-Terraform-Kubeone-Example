@@ -28,10 +28,10 @@ output "kubeone_hosts" {
   value = {
     control_plane = {
       cluster_name         = var.cluster_name
-     # cloud_provider       = "none"
-      #private_address      = [] # private addresses
+      # cloud_provider       = "cherryservers"
+      # private_address      = [] # private addresses
       public_address       = cherryservers_server.control_plane.*.primary_ip
-      ssh_agent_socket     = var.ssh_agent_socket
+      # ssh_agent_socket     = var.ssh_agent_socket
       ssh_port             = var.ssh_port
       ssh_private_key_file = var.private_key
       ssh_user             = var.ssh_username
