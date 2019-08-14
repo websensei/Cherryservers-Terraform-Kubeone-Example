@@ -27,11 +27,11 @@ variable "plan_id" {
 }
 
 variable "private_key" {
-  default = "~/.ssh/deployment"
+  default = "/home/manc/.ssh/deployment"
 }
 
 variable "public_key" {
-  default = "~/.ssh/deployment.pub"
+  default = "/home/manc/.ssh/deployment.pub"
 }
 
 variable "cloud_init" {
@@ -49,16 +49,13 @@ variable "worker_os" {
 }
 
 variable "ssh_port" {
-  description = "SSH port to be used to provision instances"
   default     = 22
 }
 
 variable "ssh_username" {
-  description = "SSH user, used only in output"
   default     = "root"
 }
 
 variable "ssh_agent_socket" {
-  description = "SSH Agent socket, default to grab from $SSH_AUTH_SOCK"
   default     = "env:SSH_AUTH_SOCK"
 }

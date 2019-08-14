@@ -6,4 +6,6 @@ terraform.tfvars
 terraform.*
 .terraform/*
 tf.json
-
+kubeone.tar.gz
+.DS_store
+*.swp

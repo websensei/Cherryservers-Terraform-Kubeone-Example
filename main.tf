@@ -20,7 +20,6 @@ resource "cherryservers_server" "load-balancer" {
   image      = var.image
   plan_id    = var.plan_id
   user_data  = var.cloud_init
-  #user_data  = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
@@ -78,7 +77,7 @@ resource "null_resource" "lb_config" {
 
   provisioner "remote-exec" {
     inline = [
-      "echo '###restarting GoBetween service###'",
+      "echo '### restarting GoBetween service ###'",
       "sudo systemctl restart gobetween",
    ]
   }
