@@ -27,11 +27,11 @@ variable "plan_id" {
 }
 
 variable "private_key" {
-  default = "/home/manc/.ssh/deployment"
+  default = "~/.ssh/deployment"
 }
 
 variable "public_key" {
-  default = "/home/manc/.ssh/deployment.pub"
+  default = "~/.ssh/deployment.pub"
 }
 
 variable "cloud_init" {
