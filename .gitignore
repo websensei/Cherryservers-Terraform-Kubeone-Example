@@ -1,3 +1,5 @@
+.DS_store
+*.swp
 terraform-provider-cherryservers
 terraform.tfplan
 terraform.tfstate.backup
@@ -7,5 +9,5 @@ terraform.*
 .terraform/*
 tf.json
 kubeone.tar.gz
-.DS_store
-*.swp
+kubeone-kubeconfig
+

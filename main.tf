@@ -13,6 +13,24 @@ resource "cherryservers_ip" "floating-ip-lb" {
   region     = var.region
 }
 
+resource "cherryservers_server" "control_plane" {
+  project_id = cherryservers_project.myproject.id
+  count      = 3
+  hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
+  image      = var.image
+  region     = var.region
+  plan_id    = var.plan_id
+
+  ssh_keys_ids = [
+    cherryservers_ssh.deployment.id,
+  ]
+
+  tags = {
+    "kubeone_cluster_name" = var.cluster_name
+    "role"                 = "api"
+  }
+}
+
 resource "cherryservers_server" "load-balancer" {
   project_id = cherryservers_project.myproject.id
   region     = var.region
@@ -29,6 +47,11 @@ resource "cherryservers_server" "load-balancer" {
     cherryservers_ip.floating-ip-lb.id,
   ]
 
+  tags = {
+    "kubeone_cluster_name" = var.cluster_name
+    "role"                 = "lb"
+  }
+
   connection {
     host        = cherryservers_server.load-balancer.primary_ip
     private_key = file(var.private_key)
@@ -37,20 +60,6 @@ resource "cherryservers_server" "load-balancer" {
   provisioner "remote-exec" {
     script = "gobetween.sh"
   }
-}
-
-resource "cherryservers_server" "control_plane" {
-  project_id = cherryservers_project.myproject.id
-  count      = 3
-  hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
-  image      = var.image
-  region     = var.region
-  plan_id    = var.plan_id
-
-  ssh_keys_ids = [
-    cherryservers_ssh.deployment.id,
-  ]
-
 }
 
 locals {

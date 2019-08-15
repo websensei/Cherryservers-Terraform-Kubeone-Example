@@ -3,7 +3,7 @@
 #}
 
 variable "project_name" {
-  default = "Kubermatic HA cluster"
+  default = "Kubernetes HA cluster"
 }
 
 variable "cluster_name" {
@@ -27,15 +27,16 @@ variable "plan_id" {
 }
 
 variable "private_key" {
-  default = "~/.ssh/deployment"
+  default = "/home/manc/.ssh/deployment"
 }
 
 variable "public_key" {
-  default = "~/.ssh/deployment.pub"
+  default = "/home/manc/.ssh/deployment.pub"
 }
 
 variable "cloud_init" {
-  default = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmwKIC0gdmlt"
+  default = "I2Nsb3VkLWNvbmZpZwoKcGFja2FnZXM6CiAtIGN1cmw="
+  # install curl package during the first boot
 }
 
 variable "worker_os" {
