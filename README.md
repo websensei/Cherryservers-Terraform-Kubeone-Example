@@ -17,7 +17,7 @@ Load balancing is powered by <http://gobetween.io/>
 You will need [cherrservers.com](https://portal.cherryservers.com) account with the credit in balance, which will be used to order services with hourly billing.
 
 Create API key <https://portal.cherryservers.com/#/settings/api-keys/>
-export it to variables.tf file:
+and export it to variables.tf file:
 
 ```sh
 provider "cherryservers" {
@@ -40,3 +40,13 @@ terraform apply -auto-approve
 terraform output -json > tf.json
 kubeone install config.yaml -t tf.json
 ```
+
+If you get no errors here then you have succesfully have created HA kubernetes cluster.
+
+```sh
+kubectl get nodes
+```
+
+## Web UI (Dashboard)
+
+The Dashboard UI is not deployed by default. To deploy Kubernetes Dashboard go [here](https://github.com/websensei/Cherryservers-Terraform-Kubeone-Example/tree/master/dashboard)

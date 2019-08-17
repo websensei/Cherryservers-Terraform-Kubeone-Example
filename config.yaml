@@ -4,6 +4,6 @@ name: demo-cluster
 machineController:
   deploy: false
 versions:
-  kubernetes: 1.14.1
+  kubernetes: 1.13.1
 cloudProvider:
   name: none

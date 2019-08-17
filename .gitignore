@@ -10,4 +10,5 @@ terraform.*
 tf.json
 kubeone.tar.gz
 kubeone-kubeconfig
+user_token.txt
 

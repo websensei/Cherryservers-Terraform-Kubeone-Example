@@ -27,11 +27,11 @@ variable "plan_id" {
 }
 
 variable "private_key" {
-  default = "/home/manc/.ssh/deployment"
+  default = "/Users/manc/.ssh/deployment"
 }
 
 variable "public_key" {
-  default = "/home/manc/.ssh/deployment.pub"
+  default = "/Users/manc/.ssh/deployment.pub"
 }
 
 variable "cloud_init" {
@@ -57,6 +57,3 @@ variable "ssh_username" {
   default     = "root"
 }
 
-variable "ssh_agent_socket" {
-  default     = "env:SSH_AUTH_SOCK"
-}
