@@ -56,10 +56,10 @@ Make sure you have installed [Kubernetes CLI tools](https://kubernetes.io/docs/t
 kubectl version
 ```
 
-Copy credentials to local workstation
+Copy kubernetes cluster config to local workstation
 
 ```sh
-scp -r -i ~/.ssh/deployment root@control_plane_ip:/root/kube $HOME
+scp -r -i ~/.ssh/deployment root@control_plane_ip:/root/.kube $HOME
 ```
 
 Replace "control_plane_ip" with the one of nodes public IP.

@@ -17,9 +17,11 @@ kubectl apply -f dashboard-adminuser.yml
 kubectl apply -f admin-role-binding.yml
 ```
 
-### Get token
+### Get access token
 
+```sh
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+```
 
 ## Access Web UI (Dashboard)
 
