@@ -8,6 +8,7 @@ terraform.tfvars
 terraform.*
 .terraform/*
 tf.json
+terraform.tfstate.lock.info
 kubeone.tar.gz
 kubeone-kubeconfig
 user_token.txt

@@ -22,9 +22,14 @@ variable "image" {
   default = "Ubuntu 18.04 64bit"
 }
 
-variable "plan_id" {
+variable "lb_plan_id" {
+  default = "59"
+}
+
+variable "node_plan_id" {
   default = "94"
 }
+
 
 variable "private_key" {
   default = "/Users/manc/.ssh/deployment"

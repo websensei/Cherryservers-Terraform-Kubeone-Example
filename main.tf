@@ -19,7 +19,7 @@ resource "cherryservers_server" "control_plane" {
   hostname   = "${var.cluster_name}-control-plane-${count.index + 1}"
   image      = var.image
   region     = var.region
-  plan_id    = var.plan_id
+  plan_id    = var.node_plan_id
 
   ssh_keys_ids = [
     cherryservers_ssh.deployment.id,
@@ -36,7 +36,7 @@ resource "cherryservers_server" "load-balancer" {
   region     = var.region
   hostname   = "${var.cluster_name}-lb"
   image      = var.image
-  plan_id    = var.plan_id
+  plan_id    = var.lb_plan_id
   user_data  = var.cloud_init
 
   ssh_keys_ids = [
