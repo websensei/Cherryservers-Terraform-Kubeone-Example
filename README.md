@@ -12,6 +12,7 @@ This example will create HA cluster with three control plane nodes.
                                   |    +--------------+
                                   +----|control-plane3|
                                        +--------------+
+                                                       
 
 The load balancing is powered by <http://gobetween.io/>
 
