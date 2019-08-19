@@ -2,7 +2,7 @@
 
 Terraform template to automatically deploy High-Available (HA) Kubernetes cluster on Cherryservers infrastructure.
 This example will create HA cluster with three control plane nodes.
-
+```sh
                                        +--------------+
                                   +----|control-plane1|
                                   |    +--------------+
@@ -12,7 +12,7 @@ This example will create HA cluster with three control plane nodes.
                                   |    +--------------+
                                   +----|control-plane3|
                                        +--------------+
-                                                       
+```
 
 The load balancing is powered by <http://gobetween.io/>
 
