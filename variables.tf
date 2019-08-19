@@ -23,7 +23,8 @@ variable "image" {
 }
 
 variable "lb_plan_id" {
-  default = "59"
+  default = "94"
+  # SSD Smart8 default = "93"
 }
 
 variable "node_plan_id" {

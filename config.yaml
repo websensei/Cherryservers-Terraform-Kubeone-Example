@@ -4,6 +4,6 @@ name: cherry-cluster
 machineController:
   deploy: false
 versions:
-  kubernetes: 1.14.1
+  kubernetes: 1.14.5
 cloudProvider:
   name: none

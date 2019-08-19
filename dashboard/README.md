@@ -2,9 +2,9 @@
 
 Dashboard is a web-based Kubernetes user interface.
 
-## Deploying the Dashboard UI
+Run the commands in the following order:
 
-Run the following command:
+### Deploy the Dashboard UI
 
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta1/aio/deploy/recommended.yaml
