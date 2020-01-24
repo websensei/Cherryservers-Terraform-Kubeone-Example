@@ -21,7 +21,7 @@ The load balancing is powered by <http://gobetween.io/>
 - [Golang](https://golang.org/dl/) 1.12.7
 - [Terraform](https://www.terraform.io/downloads.html) 0.12.20
 - [Cherryservers Terraform provider binary](http://downloads.cherryservers.com/other/terraform) (build 2019-12-19)
-- [Kubeone](https://github.com/kubermatic/kubeone) v0.10.0 (Latest stable release)
+- [Kubeone](https://github.com/kubermatic/kubeone) v0.11.0-beta.3 (Latest release)
 
 ## Before you start
 
