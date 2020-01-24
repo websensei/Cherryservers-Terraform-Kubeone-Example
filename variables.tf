@@ -1,6 +1,6 @@
-#provider "cherryservers" {
-#  auth_token = "token"
-#}
+provider "cherryservers" {
+  auth_token = "paste-your-api-token-here"
+}
 
 variable "project_name" {
   default = "Kubernetes HA cluster"
@@ -33,11 +33,11 @@ variable "node_plan_id" {
 
 
 variable "private_key" {
-  default = "/Users/manc/.ssh/deployment"
+  default = "/home/manc/.ssh/deployment"
 }
 
 variable "public_key" {
-  default = "/Users/manc/.ssh/deployment.pub"
+  default = "/home/manc/.ssh/deployment.pub"
 }
 
 variable "cloud_init" {
